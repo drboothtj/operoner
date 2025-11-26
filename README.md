@@ -1,12 +1,12 @@
-#operoner: quick and dirty operon prediction in Python
-##Description
-quick and dirty operon prediction in Python
+# operoner: quick and dirty operon prediction in Python
+## Description
+`operoner` predicts operons from a genbank file based upon strandedness and intergenic distance.
 
-##Installation
+## Installation
 WIP
 
-##Usage
+## Usage
 WIP
 
-##Citation
+## Citation
 TBC
