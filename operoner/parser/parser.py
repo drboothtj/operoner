@@ -16,16 +16,37 @@ def get_parser():
         formatter_class=RawTextHelpFormatter
         )
     parser.add_argument(
-      'genbank_path',
-      type=str,
-      default=None,
-      help=('path to genbank file')
+        'genbank_path',
+        type=str,
+        default=None,
+        help=('path to genbank file')
     )
     parser.add_argument(
-      '-t', '--target-loci',
-      type=str,
-      default=None,
-      help=('path to a list of loci to identify (comma seperated)')
+        '-d', '--distance',
+        type=int,
+        default=200,
+        help=(
+            'The maximum intergenic distance allowed between genes in an operon.\n'
+            'Default: %(default)s'
+            )
+    )
+    parser.add_argument(
+        '-m', '--min-members',
+        type=int,
+        default=1,
+        help=(
+            'The minimum number of members required to be considered an operon.\n'
+            'Default: %(default)s'
+            )
+    )
+    parser.add_argument(
+        '-t', '--target-loci',
+        type=str,
+        default=None,
+        help=(
+            'Path to a single line .csv file specifying specific starting loci.\n'
+            'Operoner will treat each target as the start of an operon.\n'
+            'Default: %(default)s')
     )
     return parser
 
@@ -49,11 +70,10 @@ def get_config_parser(arg_parser):
                logging.DEBUG, logging.ERROR, logging.INFO, logging.WARNING
                ]
             ],
-        help='set the logging level\n'
-        '(default: %(default)s)'
+        help='Set the logging level\n'
+        'Default: %(default)s'
     )
     return arg_parser
-  
 
 def parse_args():
     '''

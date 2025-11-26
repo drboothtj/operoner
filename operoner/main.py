@@ -29,7 +29,9 @@ def main() -> None:
     initialize_logging()
     args = parser.parse_args()
     logging.getLogger().setLevel(args.logging)
-    get_operons(args.genbank_path, args.target_loci)
+    operons = get_operons(args.genbank_path, args.target_loci, args.distance, args.min_members)
+    print(operons) #print to csv!
+    #add graphing function to iterate ig!
 
 if __name__ == "__main__":
     main()

@@ -34,7 +34,7 @@ def get_colinear(cdses: OrderedDict, target_loci: List, distance: int) -> List[L
                     and (cdses[new_loci]['start'] - cdses[old_loci]['end'] < distance)
                 ):
                     new_operon.append(new_loci)
-                    seen.add(loci)
+                    seen.add(new_loci)
                 else:
                     colinear = False
             operons.append(new_operon)
@@ -64,8 +64,8 @@ def get_operons(
         arguments:
             genbank_path: path to the genbank file
             target_loci: path to a single line .csv containing speciifc loci (optional)
-            ig:
-
+            ig: maximum intergenic distince
+            min_length: the minimum number of operon members
     '''
     cdses = get_locus_positions(genbank_path)
     if target_loci:
@@ -77,5 +77,4 @@ def get_operons(
     logging.info(
         "Identified %s operons...", len(operons)
         )
-    #add min size filer?
-    #add printing to .txt
+    return operons
