@@ -34,12 +34,12 @@ def main() -> None:
     operons = get_operons(args.genbank_path, args.target_loci, args.distance, args.min_members)
     #outputs
     printed_output = False
-    if args.faa_prefix:
-        print('write to faa (NOT IMPLEMENTED)')
-        printed_output = True
-    if args.fna_prefix:
-        print('write to fna (NOT IMPLEMENTED)')
-        printed_output = True
+    #if args.faa_prefix:
+    #    print('write to faa (NOT IMPLEMENTED)')
+    #    printed_output = True
+    #if args.fna_prefix:
+    #    print('write to fna (NOT IMPLEMENTED)')
+    #    printed_output = True
     if args.txt_path:
         utils.lol_to_csv(operons, args.txt_path)
         printed_output = True

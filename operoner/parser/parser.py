@@ -61,26 +61,26 @@ def get_output_parser(arg_parser):
     output_parser = arg_parser.add_argument_group(
             'output options', 'output options for operoner'
             )
-    output_parser.add_argument(
-        '-faa', '--faa-prefix',
-        type=str,
-        default=None,
-        help=(
-            'Write the amino acid sequence of operon members to inividual .faa files'
-            'using the prefix provided. \n'
-            'One file will be written per operon.'
-            'Default: %(default)s')
-    )
-    output_parser.add_argument(
-        '-fna', '--fna-prefix',
-        type=str,
-        default=None,
-        help=(
-            'Write each predicted operon to inividual .fna files'
-            'using the prefix provided. \n'
-            'One file will be written per operon.'
-            'Default: %(default)s')
-    )
+    #output_parser.add_argument(
+    #    '-faa', '--faa-prefix',
+    #    type=str,
+    #    default=None,
+    #    help=(
+    #        'Write the amino acid sequence of operon members to inividual .faa files'
+    #        'using the prefix provided. \n'
+    #        'One file will be written per operon.'
+    #        'Default: %(default)s')
+    #)
+    #output_parser.add_argument(
+    #    '-fna', '--fna-prefix',
+    #    type=str,
+    #    default=None,
+    #    help=(
+    #        'Write each predicted operon to inividual .fna files'
+    #        'using the prefix provided. \n'
+    #        'One file will be written per operon.'
+    #        'Default: %(default)s')
+    #)
     output_parser.add_argument(
         '-txt', '--txt-path',
         type=str,
@@ -91,8 +91,6 @@ def get_output_parser(arg_parser):
             'One file will be written where each line details an operon.'
             'Default: %(default)s')
     )
-
-
     return arg_parser
 
 
