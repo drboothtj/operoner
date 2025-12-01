@@ -5,6 +5,18 @@ import csv
 from collections import OrderedDict
 from typing import List
 
+def lol_to_csv(lol: List[List], filename):
+    '''
+    convert a list of lists to lines of comma seperated text
+        arguments:
+            lol: the list of lists
+        returns:
+            lines: lines of comma seperated values
+    '''
+    with open(filename, "w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerows(lol)
+
 def csv_to_list(csv_path: str) -> List:
     '''
     Take single line .csv and return the contents as a list
@@ -19,7 +31,7 @@ def csv_to_list(csv_path: str) -> List:
         if len(rows) == 1:
             row = rows[0]   # first (and only) row
             return row
-        raise Exception(
+        raise Exception( #add custom
             f'{csv_path} has more than one line.',
             ' Please ensure target loci are comma seperated on a single line.'
         )
@@ -39,5 +51,5 @@ def get_next_entry(target, odict: OrderedDict) -> str:
         return keys[idx + 1]  # next gene
     except IndexError:
         return None  # target is the last gene
-    except ValueError:
+    except ValueError: #add custom
         raise
