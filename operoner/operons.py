@@ -37,6 +37,8 @@ def get_colinear(cdses: OrderedDict, target_loci: List, distance: int) -> List[L
                     seen.add(new_loci)
                 else:
                     colinear = False
+            if operon_direction == -1:
+                new_operon.reverse()
             operons.append(new_operon)
     return operons
     #we need to remove already called loci from targets
@@ -73,7 +75,7 @@ def get_operons(
     else:
         target_loci = cdses.keys()
     operons = get_colinear(cdses, target_loci, ig)
-    operons = [operon for operon in operons if len(operon) >= min_length]
+    operons = [operon for operon in operons if len(operon) > min_length]
     logging.info(
         "Identified %s operons...", len(operons)
         )
