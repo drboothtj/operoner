@@ -10,3 +10,7 @@ WIP
 
 ## Citation
 TBC
+
+## Versions
+0.0.2 - output now corresponds to operon order
+0.0.1 - Initial version
